@@ -57,3 +57,5 @@ The account configuration, credential checks, and route-level role redirects are
 - `ccdi-evaluations-v1`: evaluation drafts and submissions, including subject, student ID, and period ID where available.
 
 All records remain in the current browser. Clearing browser storage removes them. No backend/API or official account source is connected. There is one sample student and one sample non-teaching record; registration, a full official student roster, verified schedule enrollment, configurable period history, and server-enforced authorization are not implemented. Evaluation data is not invented; when there are no submissions, reports are empty. Summary release only controls display in this demo.
+
+- `ccdi-demo-added-staff-v1`: additional demonstration faculty and non-teaching staff records created from the Admin People screen.

@@ -4,18 +4,18 @@ export type DemoAccount = { username: string; password: string; role: AccountRol
 export type DemoSession = Omit<DemoAccount, 'password'>
 
 export const demoAccounts: DemoAccount[] = [
-  { username: 'admin', password: 'password', role: 'Admin', displayName: 'CCDI Administrator' },
+  { username: 'admin', password: 'password', role: 'Admin', displayName: 'Mark Anthony Gresola' },
   { username: 'aaronpaul', password: 'password', role: 'Faculty', displayName: 'Aaron Paul Ramos' },
-  { username: 'ccdi-24-s1170', password: 'password', role: 'Student', displayName: 'Juan Dela Cruz' },
+  { username: 'ccdi-24-s1170', password: 'password', role: 'Student', displayName: 'Mark Rusell Cosa' },
 ]
 
 const SESSION_KEY = 'ccdi-demo-session-v1'
 
 export function authenticate(username: string, password: string, loginType: LoginType): { session?: DemoSession; error?: string } {
   const account = demoAccounts.find(item => item.username.toLowerCase() === username.trim().toLowerCase())
-  if (!account || account.password !== password) return { error: 'Username or password is incorrect.' }
+  if (!account || account.password !== password) return { error: 'Invalid username or password' }
   const typeMatches = loginType === 'student' ? account.role === 'Student' : account.role !== 'Student'
-  if (!typeMatches) return { error: account.role === 'Student' ? 'This account must use Student Login.' : 'This account must use Faculty Login.' }
+  if (!typeMatches) return { error: 'Invalid username or password' }
   return { session: { username: account.username, role: account.role, displayName: account.displayName } }
 }
 
