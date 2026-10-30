@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChartNoAxesColumnIncreasing, Check, Eye, EyeOff, GraduationCap, LockKeyhole, ShieldCheck, Star, UserRound, UsersRound } from 'lucide-react'
+import { ChartNoAxesColumnIncreasing, Check, GraduationCap, LockKeyhole, ShieldCheck, Star, UserRound, UsersRound } from 'lucide-react'
 import ccdiLogo from '../assets/Ccdi Logo/CCDI Logo.png'
 import { authenticate, type DemoSession, type LoginType } from '../utils/demoAuth'
 
@@ -24,7 +24,7 @@ export default function LoginPage({ onLogin }: { onLogin: (session: DemoSession)
     </div>
     <form className="auth-reference-form" onSubmit={submit} noValidate>
       <label>Username / Email<span className="auth-reference-input"><UserRound size={17}/><input autoComplete="username" value={username} onChange={event => setUsername(event.target.value)} placeholder="Enter your username or email"/></span></label>
-      <label><span className="auth-reference-label-row">Password</span><span className="auth-reference-input"><LockKeyhole size={17}/><input autoComplete="current-password" type={showPassword ? 'text' : 'password'} value={password} onChange={event => setPassword(event.target.value)} placeholder="Enter your password"/><button type="button" aria-label={showPassword ? 'Hide password' : 'Show password'} onClick={() => setShowPassword(value => !value)}>{showPassword ? <EyeOff size={17}/> : <Eye size={17}/>}</button></span></label>
+      <label><span className="auth-reference-label-row">Password</span><span className="auth-reference-input"><LockKeyhole size={17}/><input autoComplete="current-password" type={showPassword ? 'text' : 'password'} value={password} onChange={event => setPassword(event.target.value)} placeholder="Enter your password"/><button className="password-toggle-text" type="button" aria-label={showPassword ? 'Hide password' : 'Show password'} onClick={() => setShowPassword(value => !value)}>{showPassword ? 'Hide' : 'Show'}</button></span></label>
       {error && <div className="auth-error" role="alert">{error}</div>}
       <button className="button primary auth-reference-submit" type="submit">Login</button>
     </form>

@@ -2,9 +2,9 @@ import type { Subject } from '../types/evaluation'
 
 export const demoStudent = {
   id: 'ccdi-24-s1170',
-  name: 'Juan Dela Cruz',
+  name: 'Mark Rusell Cosa',
   department: 'BS Information Technology',
-  section: 'BSIT 1-A',
+  section: '3C',
 }
 export const demoStudentRoster = [demoStudent]
 
@@ -30,6 +30,18 @@ export const demoEnrollment: { facultyId: string; subjectId: string; section: st
 ]
 
 export const demoNonTeachingStaff = [{ id: 'staff-demo-1', name: 'Sample Non-Teaching Staff', department: 'Student Services', position: 'Student Services Staff', status: 'Active' }]
+export type AddedStaffRecord = { id: string; name: string; role: 'Faculty' | 'Non-Teaching Staff'; department: string; position?: string; subjectIds: string[]; status: 'Active' | 'Inactive' }
+const STAFF_KEY = 'ccdi-demo-added-staff-v1'
+export function loadAddedStaff(): AddedStaffRecord[] {
+  try {
+    const value: unknown = JSON.parse(localStorage.getItem(STAFF_KEY) ?? '[]')
+    if (!Array.isArray(value)) return []
+    return value.filter((item): item is AddedStaffRecord => !!item && typeof item === 'object' && typeof item.id === 'string' && typeof item.name === 'string' && (item.role === 'Faculty' || item.role === 'Non-Teaching Staff') && typeof item.department === 'string' && Array.isArray(item.subjectIds) && (item.status === 'Active' || item.status === 'Inactive'))
+  } catch { return [] }
+}
+export function saveAddedStaff(records: AddedStaffRecord[]) {
+  try { localStorage.setItem(STAFF_KEY, JSON.stringify(records)); return true } catch { return false }
+}
 export const evaluationPeriod = { id: '2026-2027-first', name: 'First Semester · 2026–2027', status: 'Open' as const }
 
 const ADMIN_KEY = 'ccdi-demo-admin-settings-v1'
