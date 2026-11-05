@@ -2,15 +2,15 @@ import type { Subject } from '../types/evaluation'
 
 export const demoStudent = {
   id: 'ccdi-24-s1170',
-  name: 'Mark Rusell Cosa',
+  name: 'Mark Russell Cosa',
   department: 'BS Information Technology',
   section: '3C',
 }
 export const demoStudentRoster = [
   demoStudent,
-  { id: 'ccdi-24-s1171', name: 'Justine Damasco', department: 'BS Information Technology', section: '' },
-  { id: 'ccdi-24-s1186', name: 'Cristian Lloyd Lorica', department: 'BS Information Technology', section: '' },
-  { id: 'ccdi-24-s1180', name: 'Jester Gonzaga', department: 'BS Information Technology', section: '' },
+  { id: 'ccdi-24-s1171', name: 'Justine Damasco', department: 'BS Information Technology', section: '3C' },
+  { id: 'ccdi-24-s1186', name: 'Cristian Lloyd Lorica', department: 'BS Information Technology', section: '3C' },
+  { id: 'ccdi-24-s1180', name: 'Jester Gonzaga', department: 'BS Information Technology', section: '3C' },
 ]
 
 // Demonstration schedule only; replace with the student's approved enrollment data when available.
@@ -32,6 +32,13 @@ export const demoEnrollment: { facultyId: string; subjectId: string; section: st
   { facultyId: 'f7', subjectId: 'philo-1', section: 'BSIT 1-A' },
   { facultyId: 'f7', subjectId: 'ge-elect-3', section: 'BSIT 2-A' },
   { facultyId: 'f7', subjectId: 'project-2', section: 'BSIT 4-A' },
+  { facultyId: 'f5', subjectId: 'scie', section: 'BSIT 3C' },
+  { facultyId: 'f4', subjectId: 'acctng', section: 'BSIT 3C' },
+  { facultyId: 'f8', subjectId: 'itp-306', section: 'BSIT 3C' },
+  { facultyId: 'f9', subjectId: 'humanities', section: 'BSIT 3C' },
+  { facultyId: 'f3', subjectId: 'itp-302', section: 'BSIT 3C' },
+  { facultyId: 'f1', subjectId: 'itp-303', section: 'BSIT 3C' },
+  { facultyId: 'f10', subjectId: 'itp-elective-3', section: 'BSIT 3C' },
 ]
 
 export const demoNonTeachingStaff: { id: string; name: string; department: string; position: string; status: string }[] = []
