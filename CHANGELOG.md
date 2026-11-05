@@ -21,6 +21,8 @@
 
 - Removed the Overview/My Subject tab row from the faculty content area so the selected view displays directly.
 - Aligned the dashboard stat cards, then reduced their desktop height to 100px.
+- Added mobile slide-in navigation for Student, Admin, and Faculty portals, with a dismissible backdrop.
+- Reflowed dashboard cards, filters, evaluation layouts, and profile details for phone widths; kept wide data tables horizontally scrollable.
 
 ## Files updated
 
