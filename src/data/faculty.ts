@@ -18,16 +18,26 @@ export const subjects: Subject[] = [
   { id: 'pathfit-3', code: 'PATHFIT 3', name: 'Outdoor and Adventure Activities' },
   { id: 'itp-402', code: 'ITP 402', name: 'Systems Administration and Maintenance' },
   { id: 'project-2', code: 'Project 2', name: 'Capstone Project 2' },
+  { id: 'scie', code: 'Scie', name: 'Science Technology & Society' },
+  { id: 'acctng', code: 'ACCTNG', name: 'Fundamentals of Accounting' },
+  { id: 'itp-306', code: 'ITP 306', name: 'Networking 1' },
+  { id: 'humanities', code: 'Humanities', name: 'Art Appreciation' },
+  { id: 'itp-302', code: 'ITP 302', name: 'System Integration and Architecture' },
+  { id: 'itp-303', code: 'ITP 303', name: 'Information Assurance and Security 1' },
+  { id: 'itp-elective-3', code: 'ITP ITP Elective 3', name: 'Integrative Programming and Technologies' },
 ]
 
 // Demonstration assignments: schedule instructor names were not supplied with the project.
 // Edit these subjectIds to reflect the official schedule; subject records stay shared above.
 export const faculty: Faculty[] = [
-  { id: 'f1', name: 'Aaron Paul Ramos', department: 'Information Technology', subjectIds: ['eng-1', 'itc-101', 'itc-201'], semester: 'First Semester', year: '2026–2027', initials: 'AR' },
+  { id: 'f1', name: 'Aarol Paul Ramos', department: 'Information Technology', subjectIds: ['eng-1', 'itc-101', 'itc-201', 'itp-303'], semester: 'First Semester', year: '2026–2027', initials: 'AR' },
   { id: 'f2', name: 'Edvil Luces', department: 'Information Technology', subjectIds: ['ge-elect-1', 'itc-102', 'itp-202'], semester: 'First Semester', year: '2026–2027', initials: 'EL' },
-  { id: 'f3', name: 'Junnel Fadrilan', department: 'Information Technology', subjectIds: ['math-1', 'itc-103'], semester: 'First Semester', year: '2026–2027', initials: 'JF' },
-  { id: 'f4', name: 'Edwardo Galino Reyes', department: 'Information Technology', subjectIds: ['pathfit-1', 'itp-203'], semester: 'First Semester', year: '2026–2027', initials: 'ER' },
-  { id: 'f5', name: 'Aldin Fuaso', department: 'Information Technology', subjectIds: ['nstp-1', 'pathfit-3'], semester: 'First Semester', year: '2026–2027', initials: 'AF' },
+  { id: 'f3', name: 'Junnel Fadrilan', department: 'Information Technology', subjectIds: ['math-1', 'itc-103', 'itp-302'], semester: 'First Semester', year: '2026–2027', initials: 'JF' },
+  { id: 'f4', name: 'Edwardo Reyes', department: 'Information Technology', subjectIds: ['pathfit-1', 'itp-203', 'acctng'], semester: 'First Semester', year: '2026–2027', initials: 'ER' },
+  { id: 'f5', name: 'Aldin Fuaso', department: 'Information Technology', subjectIds: ['nstp-1', 'pathfit-3', 'scie'], semester: 'First Semester', year: '2026–2027', initials: 'AF' },
   { id: 'f6', name: 'Olive Jane Dealca', department: 'Information Technology', subjectIds: ['history-1', 'itp-402'], semester: 'First Semester', year: '2026–2027', initials: 'OD' },
   { id: 'f7', name: 'Willy Dongsao', department: 'Information Technology', subjectIds: ['philo-1', 'ge-elect-3', 'project-2'], semester: 'First Semester', year: '2026–2027', initials: 'WD' },
+  { id: 'f8', name: 'Mark Gil Jamisola', department: 'Information Technology', subjectIds: ['itp-306'], semester: 'First Semester', year: '2026–2027', initials: 'MJ' },
+  { id: 'f9', name: 'John Mark Musni', department: 'Information Technology', subjectIds: ['humanities'], semester: 'First Semester', year: '2026–2027', initials: 'JM' },
+  { id: 'f10', name: 'Edvin Manuel Luces', department: 'Information Technology', subjectIds: ['itp-elective-3'], semester: 'First Semester', year: '2026–2027', initials: 'EL' },
 ]

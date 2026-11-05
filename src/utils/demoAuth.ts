@@ -8,7 +8,7 @@ export type DemoSession = Omit<DemoAccount, 'password'>
 export const demoAccounts: DemoAccount[] = [
   { username: 'admin', password: 'password', role: 'Admin', displayName: 'Mark Anthony Gresola' },
   { username: 'aaronpaul', password: 'password', role: 'Faculty', displayName: 'Aaron Paul Ramos' },
-  { username: 'ccdi-24-s1170', password: 'password', role: 'Student', displayName: 'Mark Rusell Cosa' },
+  { username: 'ccdi-24-s1170', password: 'password', role: 'Student', displayName: 'Mark Russell Cosa' },
   { username: 'ccdi-24-s1171', password: 'password', role: 'Student', displayName: 'Justine Damasco' },
   { username: 'ccdi-24-s1186', password: 'password', role: 'Student', displayName: 'Cristian Lloyd Lorica' },
   { username: 'ccdi-24-s1180', password: 'password', role: 'Student', displayName: 'Jester Gonzaga' },
