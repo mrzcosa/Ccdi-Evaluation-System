@@ -47,13 +47,16 @@ The login flow asks users to choose Student Login or Faculty Login. Administrato
 | Faculty | `admin` | `password` | Admin dashboard |
 | Faculty | `aaronpaul` | `password` | Faculty dashboard |
 | Student | `ccdi-24-s1170` | `password` | Student evaluation dashboard |
+| Student | `ccdi-24-s1171` | `password` | Student dashboard — Justine Damasco, BS Information Technology |
+| Student | `ccdi-24-s1186` | `password` | Student dashboard — Cristian Lloyd Lorica, BS Information Technology |
+| Student | `ccdi-24-s1180` | `password` | Student dashboard — Jester Gonzaga, BS Information Technology |
 
 The account configuration, credential checks, and route-level role redirects are in `src/utils/demoAuth.ts` and `src/App.tsx`. These browser checks are for demonstration only and are not server-side security. The Admin dashboard includes live local counts, faculty activation, evaluation monitoring, filters and CSV export, period open/close, and faculty summary release. The Faculty dashboard is limited to Aaron Paul Ramos’s own information and displays results only after release. The Student dashboard shows the configured demo roster and eligible evaluation assignments, drafts, and submissions. The student schedule is explicitly demonstration data in `src/data/demoData.ts`.
 
 ## Local storage
 
 - `ccdi-demo-session-v1`: active demo session; passwords are not stored.
-- `ccdi-demo-admin-settings-v1`: demonstration faculty activation, evaluation period availability, and faculty summary release settings.
+- `ccdi-demo-admin-settings-v1`: demonstration faculty activation and roster removals, evaluation period availability, and faculty summary release settings.
 - `ccdi-evaluations-v1`: evaluation drafts and submissions, including subject, student ID, and period ID where available.
 
 All records remain in the current browser. Clearing browser storage removes them. No backend/API or official account source is connected. There is one sample student and one sample non-teaching record; registration, a full official student roster, verified schedule enrollment, configurable period history, and server-enforced authorization are not implemented. Evaluation data is not invented; when there are no submissions, reports are empty. Summary release only controls display in this demo.
