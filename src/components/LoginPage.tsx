@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChartNoAxesColumnIncreasing, Check, GraduationCap, LockKeyhole, ShieldCheck, Star, UserRound, UsersRound } from 'lucide-react'
+import { ChartNoAxesColumnIncreasing, Check, GraduationCap, LockKeyhole, Star, UserRound, UsersRound } from 'lucide-react'
 import ccdiLogo from '../assets/Ccdi Logo/CCDI Logo.png'
 import { authenticate, type DemoSession, type LoginType } from '../utils/demoAuth'
 
@@ -29,6 +29,5 @@ export default function LoginPage({ onLogin }: { onLogin: (session: DemoSession)
       <button className="button primary auth-reference-submit" type="submit">Login</button>
     </form>
     <p className="auth-reference-contact">Don’t have an account? <span>Contact your administrator.</span></p>
-    <p className="auth-demo-note"><ShieldCheck size={15}/> Demo credentials are checked in this browser and do not connect to the official CCDI LMS.</p>
   </section></main>
 }

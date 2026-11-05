@@ -1,3 +1,5 @@
+import { loadAdminSettings } from '../data/demoData'
+
 export type AccountRole = 'Admin' | 'Faculty' | 'Student'
 export type LoginType = 'student' | 'faculty'
 export type DemoAccount = { username: string; password: string; role: AccountRole; displayName: string }
@@ -7,13 +9,21 @@ export const demoAccounts: DemoAccount[] = [
   { username: 'admin', password: 'password', role: 'Admin', displayName: 'Mark Anthony Gresola' },
   { username: 'aaronpaul', password: 'password', role: 'Faculty', displayName: 'Aaron Paul Ramos' },
   { username: 'ccdi-24-s1170', password: 'password', role: 'Student', displayName: 'Mark Rusell Cosa' },
+  { username: 'ccdi-24-s1171', password: 'password', role: 'Student', displayName: 'Justine Damasco' },
+  { username: 'ccdi-24-s1186', password: 'password', role: 'Student', displayName: 'Cristian Lloyd Lorica' },
+  { username: 'ccdi-24-s1180', password: 'password', role: 'Student', displayName: 'Jester Gonzaga' },
 ]
+
+export function verifyAdminPassword(password: string) {
+  return demoAccounts.some(account => account.role === 'Admin' && account.password === password)
+}
 
 const SESSION_KEY = 'ccdi-demo-session-v1'
 
 export function authenticate(username: string, password: string, loginType: LoginType): { session?: DemoSession; error?: string } {
   const account = demoAccounts.find(item => item.username.toLowerCase() === username.trim().toLowerCase())
   if (!account || account.password !== password) return { error: 'Invalid username or password' }
+  if (account.role === 'Student' && loadAdminSettings().removedStudentIds.includes(account.username)) return { error: 'Invalid username or password' }
   const typeMatches = loginType === 'student' ? account.role === 'Student' : account.role !== 'Student'
   if (!typeMatches) return { error: 'Invalid username or password' }
   return { session: { username: account.username, role: account.role, displayName: account.displayName } }
@@ -28,6 +38,7 @@ export function loadDemoSession(): DemoSession | null {
     const { username, role } = value as Partial<DemoSession>
     const account = demoAccounts.find(item => item.username === username && item.role === role)
     if (!account) return null
+    if (account.role === 'Student' && loadAdminSettings().removedStudentIds.includes(account.username)) return null
     return { username: account.username, role: account.role, displayName: account.displayName }
   } catch { return null }
 }

@@ -6,7 +6,12 @@ export const demoStudent = {
   department: 'BS Information Technology',
   section: '3C',
 }
-export const demoStudentRoster = [demoStudent]
+export const demoStudentRoster = [
+  demoStudent,
+  { id: 'ccdi-24-s1171', name: 'Justine Damasco', department: 'BS Information Technology', section: '' },
+  { id: 'ccdi-24-s1186', name: 'Cristian Lloyd Lorica', department: 'BS Information Technology', section: '' },
+  { id: 'ccdi-24-s1180', name: 'Jester Gonzaga', department: 'BS Information Technology', section: '' },
+]
 
 // Demonstration schedule only; replace with the student's approved enrollment data when available.
 export const demoEnrollment: { facultyId: string; subjectId: string; section: string }[] = [
@@ -29,7 +34,7 @@ export const demoEnrollment: { facultyId: string; subjectId: string; section: st
   { facultyId: 'f7', subjectId: 'project-2', section: 'BSIT 4-A' },
 ]
 
-export const demoNonTeachingStaff = [{ id: 'staff-demo-1', name: 'Sample Non-Teaching Staff', department: 'Student Services', position: 'Student Services Staff', status: 'Active' }]
+export const demoNonTeachingStaff: { id: string; name: string; department: string; position: string; status: string }[] = []
 export type AddedStaffRecord = { id: string; name: string; role: 'Faculty' | 'Non-Teaching Staff'; department: string; position?: string; subjectIds: string[]; status: 'Active' | 'Inactive' }
 const STAFF_KEY = 'ccdi-demo-added-staff-v1'
 export function loadAddedStaff(): AddedStaffRecord[] {
@@ -45,14 +50,14 @@ export function saveAddedStaff(records: AddedStaffRecord[]) {
 export const evaluationPeriod = { id: '2026-2027-first', name: 'First Semester · 2026–2027', status: 'Open' as const }
 
 const ADMIN_KEY = 'ccdi-demo-admin-settings-v1'
-export type DemoAdminSettings = { inactiveFacultyIds: string[]; periodOpen: boolean; facultySummariesReleased: boolean }
-const defaultSettings: DemoAdminSettings = { inactiveFacultyIds: [], periodOpen: true, facultySummariesReleased: false }
+export type DemoAdminSettings = { inactiveFacultyIds: string[]; removedFacultyIds: string[]; removedNonTeachingStaffIds: string[]; removedStudentIds: string[]; periodOpen: boolean; facultySummariesReleased: boolean }
+const defaultSettings: DemoAdminSettings = { inactiveFacultyIds: [], removedFacultyIds: [], removedNonTeachingStaffIds: [], removedStudentIds: [], periodOpen: true, facultySummariesReleased: false }
 export function loadAdminSettings(): DemoAdminSettings {
   try {
     const value: unknown = JSON.parse(localStorage.getItem(ADMIN_KEY) ?? 'null')
     if (!value || typeof value !== 'object') return defaultSettings
     const settings = value as Partial<DemoAdminSettings>
-    return { inactiveFacultyIds: Array.isArray(settings.inactiveFacultyIds) ? settings.inactiveFacultyIds.filter(id => typeof id === 'string') : [], periodOpen: settings.periodOpen !== false, facultySummariesReleased: settings.facultySummariesReleased === true }
+    return { inactiveFacultyIds: Array.isArray(settings.inactiveFacultyIds) ? settings.inactiveFacultyIds.filter(id => typeof id === 'string') : [], removedFacultyIds: Array.isArray(settings.removedFacultyIds) ? settings.removedFacultyIds.filter(id => typeof id === 'string') : [], removedNonTeachingStaffIds: Array.isArray(settings.removedNonTeachingStaffIds) ? settings.removedNonTeachingStaffIds.filter(id => typeof id === 'string') : [], removedStudentIds: Array.isArray(settings.removedStudentIds) ? settings.removedStudentIds.filter(id => typeof id === 'string') : [], periodOpen: settings.periodOpen !== false, facultySummariesReleased: settings.facultySummariesReleased === true }
   } catch { return defaultSettings }
 }
 export function saveAdminSettings(settings: DemoAdminSettings) {
