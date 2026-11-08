@@ -2,6 +2,13 @@
 
 ## Student experience
 
+- Registered 416 students from the supplied `Student Data.xlsx` sheet and retained the four existing BSIT 3C demo accounts, for 420 student accounts total.
+- Enabled Student login for roster IDs and carried program/year details into the student roster and Admin People list.
+- Matched configured BSIT demo evaluation assignments by program and year level; the other programs do not yet have demo schedules.
+- Made the Admin completion rate count eligible students who submitted every assigned evaluation in the current period.
+- Connected the Admin completion rate to submitted and pending assignment counts for the current period.
+- Assumed about half of eligible students in each BSIT year group have completed all assigned evaluations; the four specified student IDs are excluded unless actual records show completion.
+- Used the same assumed cohort for Admin and Faculty submitted, pending, and completion metrics. The illustrative Faculty overall rating remains 4.12 (Very Satisfactory), without creating evaluation scores.
 - Configured the four demonstration student accounts for BS Information Technology 3C and corrected Mark Russell Cosa's name.
 - Added seven BSIT 3C subjects and their faculty assignments to the demonstration schedule.
 - Limited the student faculty and subject selector to assignments for the signed-in student's section.

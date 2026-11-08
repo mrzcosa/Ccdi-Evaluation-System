@@ -1,4 +1,4 @@
-import { loadAdminSettings } from '../data/demoData'
+import { demoStudentRoster, loadAdminSettings } from '../data/demoData'
 
 export type AccountRole = 'Admin' | 'Faculty' | 'Student'
 export type LoginType = 'student' | 'faculty'
@@ -8,10 +8,7 @@ export type DemoSession = Omit<DemoAccount, 'password'>
 export const demoAccounts: DemoAccount[] = [
   { username: 'admin', password: 'password', role: 'Admin', displayName: 'Mark Anthony Gresola' },
   { username: 'aaronpaul', password: 'password', role: 'Faculty', displayName: 'Aaron Paul Ramos' },
-  { username: 'ccdi-24-s1170', password: 'password', role: 'Student', displayName: 'Mark Russell Cosa' },
-  { username: 'ccdi-24-s1171', password: 'password', role: 'Student', displayName: 'Justine Damasco' },
-  { username: 'ccdi-24-s1186', password: 'password', role: 'Student', displayName: 'Cristian Lloyd Lorica' },
-  { username: 'ccdi-24-s1180', password: 'password', role: 'Student', displayName: 'Jester Gonzaga' },
+  ...demoStudentRoster.map(student => ({ username: student.id, password: 'password', role: 'Student' as const, displayName: student.name })),
 ]
 
 export function verifyAdminPassword(password: string) {

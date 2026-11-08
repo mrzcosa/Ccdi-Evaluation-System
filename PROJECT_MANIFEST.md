@@ -59,6 +59,14 @@ The account configuration, credential checks, and route-level role redirects are
 - `ccdi-demo-admin-settings-v1`: demonstration faculty activation and roster removals, evaluation period availability, and faculty summary release settings.
 - `ccdi-evaluations-v1`: evaluation drafts and submissions, including subject, student ID, and period ID where available.
 
-All records remain in the current browser. Clearing browser storage removes them. No backend/API or official account source is connected. There is one sample student and one sample non-teaching record; registration, a full official student roster, verified schedule enrollment, configurable period history, and server-enforced authorization are not implemented. Evaluation data is not invented; when there are no submissions, reports are empty. Summary release only controls display in this demo.
+All records remain in the current browser. Clearing browser storage removes them. No backend/API or server-enforced authorization is connected. The student roster includes the imported demonstration records below, but course enrollment is not verified against an official source. Configurable period history is not implemented. Evaluation data is not invented; when there are no submissions, reports are empty. Summary release only controls display in this demo.
 
 - `ccdi-demo-added-staff-v1`: additional demonstration faculty and non-teaching staff records created from the Admin People screen.
+
+## Imported student roster
+
+- 416 complete records were imported from the `Students` sheet in the supplied `Student Data.xlsx` workbook.
+- The four previously configured BS Information Technology 3C demo students remain registered, making 420 student accounts total.
+- Spreadsheet usernames are the student IDs; spreadsheet passwords are used for the corresponding demo accounts (all are `password`).
+- The spreadsheet's Course value was split into program and year level for the existing roster model.
+- The available evaluation schedule remains demonstration data for BS Information Technology; the workbook does not provide verified subject assignments or class sections.
