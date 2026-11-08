@@ -1,4 +1,7 @@
 import type { Subject } from '../types/evaluation'
+import { importedStudents } from './importedStudents'
+
+export type DemoStudent = { id: string; name: string; department: string; section: string }
 
 export const demoStudent = {
   id: 'ccdi-24-s1170',
@@ -6,11 +9,16 @@ export const demoStudent = {
   department: 'BS Information Technology',
   section: '3C',
 }
-export const demoStudentRoster = [
+const additionalDemoStudents: DemoStudent[] = [
   demoStudent,
   { id: 'ccdi-24-s1171', name: 'Justine Damasco', department: 'BS Information Technology', section: '3C' },
   { id: 'ccdi-24-s1186', name: 'Cristian Lloyd Lorica', department: 'BS Information Technology', section: '3C' },
   { id: 'ccdi-24-s1180', name: 'Jester Gonzaga', department: 'BS Information Technology', section: '3C' },
+]
+const existingStudentIds = new Set(additionalDemoStudents.map(student => student.id))
+export const demoStudentRoster: DemoStudent[] = [
+  ...additionalDemoStudents,
+  ...importedStudents.filter(student => !existingStudentIds.has(student.id)),
 ]
 
 // Demonstration schedule only; replace with the student's approved enrollment data when available.
@@ -40,6 +48,13 @@ export const demoEnrollment: { facultyId: string; subjectId: string; section: st
   { facultyId: 'f1', subjectId: 'itp-303', section: 'BSIT 3C' },
   { facultyId: 'f10', subjectId: 'itp-elective-3', section: 'BSIT 3C' },
 ]
+
+export function getDemoEnrollmentForStudent(student: DemoStudent) {
+  if (student.department !== 'BS Information Technology') return []
+  const yearLevel = student.section.match(/[1-4]/)?.[0]
+  if (!yearLevel) return []
+  return demoEnrollment.filter(item => item.section.startsWith(`BSIT ${yearLevel}`))
+}
 
 export const demoNonTeachingStaff: { id: string; name: string; department: string; position: string; status: string }[] = []
 export type AddedStaffRecord = { id: string; name: string; role: 'Faculty' | 'Non-Teaching Staff'; department: string; position?: string; subjectIds: string[]; status: 'Active' | 'Inactive' }
